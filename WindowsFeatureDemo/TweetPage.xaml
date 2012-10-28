@@ -1,0 +1,37 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WindowsFeatureDemo"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:DataModel="using:WindowsFeatureDemo.DataModel"
+    x:Class="WindowsFeatureDemo.TweetPage"
+    mc:Ignorable="d">
+
+	<d:Page.DataContext>
+		<DataModel:DesignTweetPageViewModel/>
+	</d:Page.DataContext>
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="100"/>
+    		<RowDefinition/>
+    		<RowDefinition Height="40"/>
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="120"/>
+    		<ColumnDefinition/>
+    		<ColumnDefinition Width="120"/>
+    	</Grid.ColumnDefinitions>
+    	<TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0" TextWrapping="Wrap" Text="Tweet" VerticalAlignment="Bottom" Style="{StaticResource PageHeaderTextStyle}"/>
+    	<Button Content="Button" HorizontalAlignment="Center" Margin="36,0" VerticalAlignment="Bottom" Style="{StaticResource BackButtonStyle}" Command="{Binding BackButtonClicked, Mode=OneWay}"/>
+    	<StackPanel Background="White" Grid.Column="1" HorizontalAlignment="Center" Margin="0" Grid.Row="1" VerticalAlignment="Center" Width="600" >
+    		<StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="20">
+    			<Image Height="60" Width="60" Stretch="UniformToFill" Source="{Binding Tweet.Image}"/>
+    			<TextBlock TextWrapping="Wrap" Text="{Binding Tweet.Author}" Foreground="Black" Margin="20,0,0,0" Style="{StaticResource SubtitleTextStyle}" FontWeight="Bold" VerticalAlignment="Center"/>
+    		</StackPanel>
+    		<TextBlock TextWrapping="Wrap" Text="{Binding Tweet.Message}" Margin="20,0,20,20" Foreground="Black" FontSize="29.333"/>
+    	</StackPanel>
+
+    </Grid>
+</Page>
